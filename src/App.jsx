@@ -64,23 +64,24 @@ function App() {
             <a href="#products" className="hover:text-white">Products</a>
             <a href="#services" className="hover:text-white">Services</a>
           </nav>
-          <div className="w-72 hidden lg:block">
-            <Cart cart={cart} onRemove={removeFromCart} onCheckout={checkout} />
-          </div>
         </div>
       </header>
 
       <Hero onShopClick={scrollToProducts} />
 
       <main>
-        <div className="mx-auto max-w-7xl px-6 grid lg:grid-cols-[1fr_320px] gap-8">
+        <div className="mx-auto max-w-7xl px-6">
           <Products onAdd={addToCart} />
-          <div className="lg:hidden">
-            <Cart cart={cart} onRemove={removeFromCart} onCheckout={checkout} />
-          </div>
         </div>
         <Services />
       </main>
+
+      {/* Docked cart at the bottom */}
+      <div className="fixed bottom-4 inset-x-0 z-50 flex justify-center px-4 pointer-events-none">
+        <div className="w-full max-w-md pointer-events-auto">
+          <Cart cart={cart} onRemove={removeFromCart} onCheckout={checkout} />
+        </div>
+      </div>
 
       <footer className="py-10 text-center text-gray-400 text-sm">© {new Date().getFullYear()} Producer Shop. All rights reserved.</footer>
     </div>
