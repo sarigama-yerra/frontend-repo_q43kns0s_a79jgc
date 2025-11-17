@@ -3,6 +3,7 @@ import Hero from './components/Hero'
 import Products from './components/Products'
 import Cart from './components/Cart'
 import Services from './components/Services'
+import Gallery from './components/Gallery'
 
 const API_BASE = import.meta.env.VITE_BACKEND_URL || ''
 
@@ -71,6 +72,7 @@ function App() {
 
       <main>
         <div className="mx-auto max-w-7xl px-6">
+          <Gallery />
           <Products onAdd={addToCart} />
         </div>
         <Services />
